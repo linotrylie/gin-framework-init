@@ -8,8 +8,6 @@ gin-framework-init管理后台
 
 - api: 控制器层
     - admin : 管理员后台
-    - mch : 商户后台
-    - openapi : 开放平台
 
 - consts:定义静态变量层
 - dao: 数据库操作层
