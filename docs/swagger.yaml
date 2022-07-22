@@ -1,0 +1,302 @@
+definitions:
+  request.AuthNodeCreateParam:
+    properties:
+      icon:
+        type: string
+      name:
+        type: string
+      pid:
+        type: integer
+      sort:
+        type: integer
+      type:
+        type: integer
+      url:
+        type: string
+    required:
+    - name
+    - sort
+    - type
+    - url
+    type: object
+  request.RoleCreateParam:
+    properties:
+      desc:
+        description: 描述
+        type: string
+      name:
+        description: 角色名称
+        type: string
+      nodeId:
+        description: 节点id
+        items:
+          type: integer
+        type: array
+      sort:
+        description: 排序
+        type: integer
+    required:
+    - name
+    type: object
+info:
+  contact: {}
+  description: golang is a open source language
+  termsOfService: https://www.google.com
+  title: 比邻星权益平台
+  version: "1.0"
+paths:
+  /admin/node/create:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: 新增节点参数
+        in: body
+        name: authNodeCreate
+        required: true
+        schema:
+          $ref: '#/definitions/request.AuthNodeCreateParam'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":0,"data":null,"msg":"ok"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 新增节点
+      tags:
+      - rbac/node
+  /admin/node/tree:
+    post:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":0,"data":null,"msg":"ok"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 节点树
+      tags:
+      - rbac/node
+  /admin/role/create:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: 新增角色参数
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/request.RoleCreateParam'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":0,"data":null,"msg":"ok"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 新增角色
+      tags:
+      - rbac/role
+  /admin/role/delete:
+    delete:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":0,"data":null,"msg":"ok"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 获取角色列表
+      tags:
+      - rbac/role
+  /admin/role/list:
+    post:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":0,"data":null,"msg":"ok"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 获取角色列表
+      tags:
+      - rbac/role
+  /admin/role/node:
+    post:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":0,"data":null,"msg":"ok"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 获取角色对应的节点
+      tags:
+      - rbac/role
+  /admin/role/update:
+    post:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":0,"data":null,"msg":"ok"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 编辑角色
+      tags:
+      - rbac/role
+  /admin/user/change/password:
+    post:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":0,"data":null,"msg":"ok"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 修改密码
+      tags:
+      - rbac/user
+  /admin/user/create:
+    post:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":0,"data":null,"msg":"ok"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 新增用户
+      tags:
+      - rbac/user
+  /admin/user/delete:
+    delete:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":0,"data":null,"msg":"ok"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 用户删除
+      tags:
+      - rbac/user
+  /admin/user/list:
+    post:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":0,"data":null,"msg":"ok"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 获取用户列表
+      tags:
+      - rbac/user
+  /admin/user/login:
+    post:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":0,"data":{"expire":1651654641,"token":"xxxx"},"msg":"ok"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 用户登录
+      tags:
+      - rbac/user
+  /admin/user/role:
+    post:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":0,"data":{"expire":1651654641,"token":"xxxx"},"msg":"ok"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 当前用户所拥有的角色
+      tags:
+      - rbac/user
+  /admin/user/status:
+    post:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":0,"data":null,"msg":"ok"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 设置用户状态
+      tags:
+      - rbac/user
+  /admin/user/update:
+    post:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":0,"data":null,"msg":"ok"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 编辑用户
+      tags:
+      - rbac/user
+swagger: "2.0"

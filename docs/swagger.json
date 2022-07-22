@@ -1,0 +1,497 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "golang is a open source language",
+        "title": "比邻星权益平台",
+        "termsOfService": "https://www.google.com",
+        "contact": {},
+        "version": "1.0"
+    },
+    "paths": {
+        "/admin/node/create": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "rbac/node"
+                ],
+                "summary": "新增节点",
+                "parameters": [
+                    {
+                        "description": "新增节点参数",
+                        "name": "authNodeCreate",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.AuthNodeCreateParam"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"code\":0,\"data\":null,\"msg\":\"ok\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/node/tree": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "rbac/node"
+                ],
+                "summary": "节点树",
+                "responses": {
+                    "200": {
+                        "description": "{\"code\":0,\"data\":null,\"msg\":\"ok\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/role/create": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "rbac/role"
+                ],
+                "summary": "新增角色",
+                "parameters": [
+                    {
+                        "description": "新增角色参数",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.RoleCreateParam"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"code\":0,\"data\":null,\"msg\":\"ok\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/role/delete": {
+            "delete": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "rbac/role"
+                ],
+                "summary": "获取角色列表",
+                "responses": {
+                    "200": {
+                        "description": "{\"code\":0,\"data\":null,\"msg\":\"ok\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/role/list": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "rbac/role"
+                ],
+                "summary": "获取角色列表",
+                "responses": {
+                    "200": {
+                        "description": "{\"code\":0,\"data\":null,\"msg\":\"ok\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/role/node": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "rbac/role"
+                ],
+                "summary": "获取角色对应的节点",
+                "responses": {
+                    "200": {
+                        "description": "{\"code\":0,\"data\":null,\"msg\":\"ok\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/role/update": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "rbac/role"
+                ],
+                "summary": "编辑角色",
+                "responses": {
+                    "200": {
+                        "description": "{\"code\":0,\"data\":null,\"msg\":\"ok\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/user/change/password": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "rbac/user"
+                ],
+                "summary": "修改密码",
+                "responses": {
+                    "200": {
+                        "description": "{\"code\":0,\"data\":null,\"msg\":\"ok\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/user/create": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "rbac/user"
+                ],
+                "summary": "新增用户",
+                "responses": {
+                    "200": {
+                        "description": "{\"code\":0,\"data\":null,\"msg\":\"ok\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/user/delete": {
+            "delete": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "rbac/user"
+                ],
+                "summary": "用户删除",
+                "responses": {
+                    "200": {
+                        "description": "{\"code\":0,\"data\":null,\"msg\":\"ok\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/user/list": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "rbac/user"
+                ],
+                "summary": "获取用户列表",
+                "responses": {
+                    "200": {
+                        "description": "{\"code\":0,\"data\":null,\"msg\":\"ok\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/user/login": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "rbac/user"
+                ],
+                "summary": "用户登录",
+                "responses": {
+                    "200": {
+                        "description": "{\"code\":0,\"data\":{\"expire\":1651654641,\"token\":\"xxxx\"},\"msg\":\"ok\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/user/role": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "rbac/user"
+                ],
+                "summary": "当前用户所拥有的角色",
+                "responses": {
+                    "200": {
+                        "description": "{\"code\":0,\"data\":{\"expire\":1651654641,\"token\":\"xxxx\"},\"msg\":\"ok\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/user/status": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "rbac/user"
+                ],
+                "summary": "设置用户状态",
+                "responses": {
+                    "200": {
+                        "description": "{\"code\":0,\"data\":null,\"msg\":\"ok\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/user/update": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "rbac/user"
+                ],
+                "summary": "编辑用户",
+                "responses": {
+                    "200": {
+                        "description": "{\"code\":0,\"data\":null,\"msg\":\"ok\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "request.AuthNodeCreateParam": {
+            "type": "object",
+            "required": [
+                "name",
+                "sort",
+                "type",
+                "url"
+            ],
+            "properties": {
+                "icon": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "pid": {
+                    "type": "integer"
+                },
+                "sort": {
+                    "type": "integer"
+                },
+                "type": {
+                    "type": "integer"
+                },
+                "url": {
+                    "type": "string"
+                }
+            }
+        },
+        "request.RoleCreateParam": {
+            "type": "object",
+            "required": [
+                "name"
+            ],
+            "properties": {
+                "desc": {
+                    "description": "描述",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "角色名称",
+                    "type": "string"
+                },
+                "nodeId": {
+                    "description": "节点id",
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "sort": {
+                    "description": "排序",
+                    "type": "integer"
+                }
+            }
+        }
+    }
+}

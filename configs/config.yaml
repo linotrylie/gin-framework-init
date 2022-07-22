@@ -1,0 +1,48 @@
+Server:
+  RunMode: debug
+  HttpPort: 8080
+  ReadTimeout: 60
+  WriteTimeout: 60
+
+App:
+  DefaultPageSize: 21
+  MaxPageSize: 100
+  LogSavePath: storage/logs
+  LogFileName: app
+  LogFileExt: .log
+
+JWT:
+  Secret: blxequityplatform      # 密钥
+  Issuer: blx-equity-platform # 签发者
+  Expire: 172000        # 过期时间
+
+Database:
+  Master:
+    DBType: mysql
+    DBName: blx-equity-platform
+    UserName: root
+    Password: Xingli@1234
+    Host: 139.9.153.162:3306
+    TablePrefix: t_
+    Charset: utf8
+    ParseTime: true
+    MaxIdleConns: 10
+    MaxOpenConns: 30
+  Slave:
+    DBType: mysql
+    DBName: blx-equity-platform
+    UserName: root
+    Password: Xingli@1234
+    Host: 139.9.153.162:3306
+    TablePrefix: t_
+    Charset: utf8
+    ParseTime: true
+    MaxIdleConns: 10
+    MaxOpenConns: 30
+Redis:
+  Host: redis:6379
+  Password:
+  MaxIdle: 30
+  MaxActive: 30
+  IdleTimeout: 200
+  DB: 0

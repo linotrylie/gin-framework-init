@@ -1,0 +1,11 @@
+stages:
+- name: package
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: zengsuyi/equity:v1
+      pushRemote: true
+      registry: index.docker.io
+timeout: 60
+notification: {}
